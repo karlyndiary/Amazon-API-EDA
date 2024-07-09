@@ -7,9 +7,9 @@
 * [Dashboard](#dashboard)
 
 ## Business Problem: 
-### Market Demand and Trend Analysis
+### Laptop Price Optimization Analysis
 
-Lenovo wants to understand which laptop models are most popular among consumers and how demand changes over time.
+Developing a laptop price analysis and recommendation system to optimize sales and customer satisfaction through informed pricing strategies.
 
 ## Requirements
 - Python: For Web Scraping and ETL.
