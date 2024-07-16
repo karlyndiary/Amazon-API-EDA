@@ -14,7 +14,7 @@ Developing a laptop price analysis and recommendation system to optimize sales a
 
 ## Tools Used
 - Python: For Web Scraping and ETL.
-  - Lenovo Laptops 
+  - Laptops 
 - SQL: For data cleaning and querying the required data.
 - Google Sheets: Dashboard Data Visualizations.
 
