@@ -4,7 +4,7 @@
 * [Business Problem](#business-problem)
 * [Tools Used](#tools-used)
 * [Data Description](#data-description)
-* [Data Cleaning](#data-cleaning)
+* [Data Cleaning in MS SQL Server](#data-cleaning-in-ms-sql-server)
 * [Dashboard](#dashboard)
 
 ## Business Problem: 
@@ -12,7 +12,7 @@
 
 Developing a laptop price analysis and recommendation system to optimize sales and customer satisfaction through informed pricing strategies.
 
-## Requirements
+## Tools Used
 - Python: For Web Scraping and ETL.
   - Lenovo Laptops 
 - SQL: For data cleaning and querying the required data.
