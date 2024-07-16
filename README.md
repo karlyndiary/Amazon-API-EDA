@@ -4,6 +4,7 @@
 * [Business Problem](#business-problem)
 * [Tools Used](#tools-used)
 * [Data Description](#data-description)
+* [Data Cleaning](#data-cleaning)
 * [Dashboard](#dashboard)
 
 ## Business Problem: 
@@ -43,5 +44,15 @@ Developing a laptop price analysis and recommendation system to optimize sales a
 - resolution: Screen resolution of the laptop
 - processor_brand: Brand of the processor
 - service: Additional services provided with the product
+
+## Data Cleaning in MS SQL Server
+
+- [] price - remove comma and dot
+- [] rating - remove the word rating
+- [] mrp - remove sign and comma
+- [] ram - remove gb
+- [] storage - extract all with ssd
+- [] star - mean value for missing
+- [] screen size - convert cm to inches and maybe remove inches
   
 ## Dashboard
