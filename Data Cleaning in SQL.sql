@@ -6,7 +6,9 @@ SET prices = REPLACE(REPLACE(prices, ',', ''), N'₹', '')
 	
 	
 # cleaning brackets from discount_percent
-
+UPDATE [Amazon].[dbo].[Laptops]
+SET discount_percent = REPLACE(REPLACE(discount_percent,'(', ''),')','')
+	
 # keep the float star of the product and mean for no stars
 
 # mean value for rating 
