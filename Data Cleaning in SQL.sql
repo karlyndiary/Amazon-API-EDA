@@ -9,8 +9,12 @@ SET prices = REPLACE(REPLACE(prices, ',', ''), N'₹', '')
 UPDATE [Amazon].[dbo].[Laptops]
 SET discount_percent = REPLACE(REPLACE(discount_percent,'(', ''),')','')
 	
-# keep the float star of the product and mean for no stars
+# keep the float value of the star 
+UPDATE [Amazon].[dbo].[Laptops]
+SET stars = REPLACE(stars, RIGHT(stars, 15), '' )
 
+# mean for null stars
+	
 # mean value for rating 
 UPDATE [Amazon].[dbo].[Laptops]
 SET rating = (
