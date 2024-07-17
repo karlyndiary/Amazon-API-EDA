@@ -3,12 +3,13 @@ CREATE DATABASE Amazon;
 USE Amazon;
 
 CREATE TABLE Laptops (
-    product_name NVARCHAR(255) PRIMARY KEY,
-    prices NVARCHAR(20),
-    discount_percent CHAR(100),
-    stars NVARCHAR(20),
-    rating INT,
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    product_name NVARCHAR(255),
+    prices NVARCHAR(50),
+    discount_percent NVARCHAR(50),
+    stars NVARCHAR(50),
+    rating NVARCHAR(50),
     total_purchased NVARCHAR(100),
-    deal NVARCHAR(255),
-    device_setup NVARCHAR(20)
+    deal NVARCHAR(100),
+    device_setup NVARCHAR(50)
 );
