@@ -1,15 +1,14 @@
-CREATE DATABASE DATABASE_NAME;
+CREATE DATABASE Amazon;
 
-USE Target;
+USE Amazon;
 
-CREATE TABLE Retail (
-     Transaction_ID INT PRIMARY KEY,
-     Date DATE,
-     Customer_ID CHAR(100),
-     Gender NVARCHAR(20),
-     Age INT,
-     Product_Category NVARCHAR(100),
-     Quantity INT,
-     Price_Per_Unit INT,
-     Total_Amount INT
+CREATE TABLE Laptops (
+    product_name NVARCHAR(255) PRIMARY KEY,
+    prices NVARCHAR(20),
+    discount_percent CHAR(100),
+    stars NVARCHAR(20),
+    rating INT,
+    total_purchased NVARCHAR(100),
+    deal NVARCHAR(255),
+    device_setup NVARCHAR(20)
 );
