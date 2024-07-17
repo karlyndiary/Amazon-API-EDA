@@ -1,5 +1,10 @@
 # cleaning prices 
+UPDATE [Amazon].[dbo].[Laptops]
+SET prices = REPLACE(REPLACE(prices, ',', ''), N'₹', '')
 
+# remove duplicate price after currency symbol
+	
+	
 # cleaning brackets from discount_percent
 
 # keep the float star of the product and mean for no stars
