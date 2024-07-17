@@ -13,8 +13,27 @@ SET discount_percent = REPLACE(REPLACE(discount_percent,'(', ''),')','')
 UPDATE [Amazon].[dbo].[Laptops]
 SET stars = REPLACE(stars, RIGHT(stars, 15), '' )
 
+# trim whitespace and replace with 0
+UPDATE [Amazon].[dbo].[Laptops]
+SET stars = CASE
+               WHEN LTRIM(RTRIM(stars)) = '' THEN '0'
+               ELSE LTRIM(RTRIM(stars))
+            END
+WHERE stars IS NOT NULL;
+
 # mean for null stars
-	
+UPDATE [Amazon].[dbo].[Laptops]
+SET stars = CASE
+              WHEN stars = '0' THEN CAST(
+                  (
+                      SELECT ROUND(AVG(CAST(stars AS FLOAT)),1)
+                      FROM [Amazon].[dbo].[Laptops]
+                      WHERE ISNUMERIC(stars) = 1
+                  ) AS NVARCHAR(10)) 
+              ELSE stars
+           END
+WHERE stars IS NOT NULL;
+
 # mean value for rating 
 UPDATE [Amazon].[dbo].[Laptops]
 SET rating = (
