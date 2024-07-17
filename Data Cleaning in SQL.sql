@@ -1,9 +1,17 @@
 # cleaning prices 
 UPDATE [Amazon].[dbo].[Laptops]
-SET prices = REPLACE(REPLACE(prices, ',', ''), N'₹', '')
+SET prices = REPLACE(prices, ',', '')
 
-# remove duplicate price after currency symbol
-	
+# remove currency symbol
+update [Amazon].[dbo].[Laptops]
+set prices =  MASTER.dbo.udfGetCharacters(prices,'0-9 /')
+where prices !=  MASTER.dbo.udfGetCharacters(prices,'0-9 /')	
+
+# remove duplicate price after space
+update [Amazon].[dbo].[Laptops]
+set prices =  LEFT(prices, CHARINDEX(' ', prices + ' ') - 1)
+where prices != LEFT(prices, CHARINDEX(' ', prices + ' ') - 1)
+
 	
 # cleaning brackets from discount_percent
 UPDATE [Amazon].[dbo].[Laptops]
