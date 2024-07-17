@@ -26,12 +26,6 @@ WHERE rating = 'no data'
 # replace no data in device setup to no device setup option available
 UPDATE [Amazon].[dbo].[Laptops]
 SET device_setup = Case when device_setup = 'no data' Then 'No Device Setup Available'
-				Else 'Device Setup Available'
-			end
-		where device_setup IN ('no data', 'Service: Device Setup');
-
-UPDATE [Amazon].[dbo].[Laptops]
-SET device_setup = Case when device_setup = 'No device setup available' Then 'No Device Setup Available'
-				Else 'Device Setup Available'
-			end
-		where device_setup IN ('No device setup available', 'Service: Device Setup');
+		   Else 'Device Setup Available'
+		END
+	WHERE device_setup IN ('no data', 'Service: Device Setup');
