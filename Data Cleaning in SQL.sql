@@ -67,3 +67,13 @@ storage nvarchar(10),
 os nvarchar(20),
 color nvarchar(20),
 weight nvarchar(10)
+
+# update brand column 
+UPDATE [Amazon].[dbo].[Laptops]
+SET brand = CASE 
+                WHEN LEFT(product_name, 1) = '(' AND CHARINDEX(')', product_name) > 0
+                THEN LEFT(LTRIM(SUBSTRING(product_name, CHARINDEX(')', product_name) + 1, LEN(product_name))),
+                        CHARINDEX(' ', LTRIM(SUBSTRING(product_name, CHARINDEX(')', product_name) + 1, LEN(product_name)))) - 1)
+                ELSE LEFT(product_name, CHARINDEX(' ', product_name + ' ') - 1)
+            END
+WHERE brand IS NULL;
