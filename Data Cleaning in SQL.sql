@@ -96,3 +96,12 @@ FROM
 where ram is null;
 
 # update weight column
+Update [Amazon].[dbo].[Laptops]
+SET weight = CASE 
+       WHEN CHARINDEX('Kg', product_name) > 0 THEN SUBSTRING(product_name, CHARINDEX('Kg', product_name) - 5, 5)
+       ELSE AVG(weight)
+       END
+FROM [Amazon].[dbo].[Laptops]
+WHERE weight is null;
+
+# clean weight column
