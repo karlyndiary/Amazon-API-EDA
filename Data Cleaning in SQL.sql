@@ -105,3 +105,23 @@ FROM [Amazon].[dbo].[Laptops]
 WHERE weight is null;
 
 # clean weight column
+UPDATE [Amazon].[dbo].[Laptops] 
+SET weight = REPLACE(weight , '/' ,'')
+
+UPDATE [Amazon].[dbo].[Laptops] 
+SET weight = LTRIM(RTRIM(weight));
+
+update [Amazon].[dbo].[Laptops]
+set weight = MASTER.dbo.udfGetCharacters(weight, '0123456789.')
+where weight != MASTER.dbo.udfGetCharacters(weight, '0123456789.')
+
+# Mean value for null values
+DECLARE @avgWeight FLOAT;
+
+SELECT @avgWeight = ROUND(AVG(CAST(weight AS FLOAT)), 2)
+FROM [Amazon].[dbo].[Laptops]
+WHERE weight IS NOT NULL;
+
+UPDATE [Amazon].[dbo].[Laptops]
+SET weight = @avgWeight
+WHERE weight IS NULL;
