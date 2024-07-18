@@ -77,3 +77,22 @@ SET brand = CASE
                 ELSE LEFT(product_name, CHARINDEX(' ', product_name + ' ') - 1)
             END
 WHERE brand IS NULL;
+
+# update ram column
+Update [Amazon].[dbo].[Laptops]
+set ram = CASE
+                WHEN CHARINDEX('16GB', product_name) > 0 THEN '16 GB'
+                WHEN CHARINDEX('8GB', product_name) > 0 THEN '8 GB'
+		WHEN CHARINDEX('16 GB', product_name) > 0 THEN '16 GB'
+                WHEN CHARINDEX('8 GB', product_name) > 0 THEN '8 GB'
+		WHEN CHARINDEX('64 GB', product_name) > 0 THEN '64 GB'
+		WHEN CHARINDEX('32 GB', product_name) > 0 THEN '32 GB'
+		WHEN CHARINDEX('32GB', product_name) > 0 THEN '32 GB'
+		WHEN CHARINDEX('4GB', product_name) > 0 THEN '4 GB'
+		WHEN CHARINDEX('16 DDR5', product_name) > 0 THEN '16 GB'
+             END
+FROM 
+    [Amazon].[dbo].[Laptops]
+where ram is null;
+
+# update weight column
