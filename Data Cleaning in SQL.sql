@@ -56,3 +56,14 @@ SET device_setup = Case when device_setup = 'no data' Then 'No Device Setup Avai
 		   Else 'Device Setup Available'
 		END
 	WHERE device_setup IN ('no data', 'Service: Device Setup');
+
+# Add new columns 
+Alter Table [Amazon].[dbo].[Laptops]
+Add brand nvarchar(10),
+model nvarchar(20),
+processor nvarchar(20),
+ram Nvarchar(10),
+storage nvarchar(10),
+os nvarchar(20),
+color nvarchar(20),
+weight nvarchar(10)
