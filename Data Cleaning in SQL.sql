@@ -125,3 +125,21 @@ WHERE weight IS NOT NULL;
 UPDATE [Amazon].[dbo].[Laptops]
 SET weight = @avgWeight
 WHERE weight IS NULL;
+
+# updating the os column
+UPDATE [Amazon].[dbo].[Laptops]
+SET os = CASE
+    WHEN CHARINDEX('win 10', LOWER(product_name)) > 0 THEN 'Windows 10'
+    WHEN CHARINDEX('windows 10 home', LOWER(product_name)) > 0 THEN 'Windows 10 Home'
+	WHEN CHARINDEX('windows 11 home', LOWER(product_name)) > 0 THEN 'Windows 11 Home'
+    WHEN CHARINDEX('w11', LOWER(product_name)) > 0 THEN 'Windows 11 Home'
+    WHEN CHARINDEX('windows 10', LOWER(product_name)) > 0 THEN 'Windows 10'
+    WHEN CHARINDEX('win 11', LOWER(product_name)) > 0 THEN 'Windows 11'
+	WHEN CHARINDEX('win11', LOWER(product_name)) > 0 THEN 'Windows 11'
+	WHEN CHARINDEX('win11 home', LOWER(product_name)) > 0 THEN 'Windows 11'
+	WHEN CHARINDEX('dos', LOWER(product_name)) > 0 THEN 'DOS'
+	WHEN CHARINDEX('primeos', LOWER(product_name)) > 0 THEN 'Prime OS'
+    WHEN CHARINDEX('windows 11', LOWER(product_name)) > 0 THEN 'Windows 11'
+	WHEN CHARINDEX('chrome os', LOWER(product_name)) > 0 THEN 'Chrome OS'
+    ELSE 'Windows 11'
+END
