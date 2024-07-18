@@ -4,8 +4,8 @@ SET prices = REPLACE(prices, ',', '')
 
 # remove currency symbol
 update [Amazon].[dbo].[Laptops]
-set prices =  MASTER.dbo.udfGetCharacters(prices,'0-9 /')
-where prices !=  MASTER.dbo.udfGetCharacters(prices,'0-9 /')	
+set prices =  MASTER.dbo.getCharacters(prices,'0-9 /')
+where prices !=  MASTER.dbo.getCharacters(prices,'0-9 /')	
 
 # remove duplicate price after space
 update [Amazon].[dbo].[Laptops]
