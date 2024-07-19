@@ -63,7 +63,7 @@ Add brand nvarchar(10),
 model nvarchar(20),
 processor nvarchar(20),
 ram Nvarchar(10),
-storage nvarchar(10),
+storage nvarchar(20),
 os nvarchar(20),
 color nvarchar(20),
 weight nvarchar(10)
