@@ -131,15 +131,33 @@ UPDATE [Amazon].[dbo].[Laptops]
 SET os = CASE
     WHEN CHARINDEX('win 10', LOWER(product_name)) > 0 THEN 'Windows 10'
     WHEN CHARINDEX('windows 10 home', LOWER(product_name)) > 0 THEN 'Windows 10 Home'
-	WHEN CHARINDEX('windows 11 home', LOWER(product_name)) > 0 THEN 'Windows 11 Home'
+    WHEN CHARINDEX('windows 11 home', LOWER(product_name)) > 0 THEN 'Windows 11 Home'
     WHEN CHARINDEX('w11', LOWER(product_name)) > 0 THEN 'Windows 11 Home'
     WHEN CHARINDEX('windows 10', LOWER(product_name)) > 0 THEN 'Windows 10'
     WHEN CHARINDEX('win 11', LOWER(product_name)) > 0 THEN 'Windows 11'
-	WHEN CHARINDEX('win11', LOWER(product_name)) > 0 THEN 'Windows 11'
-	WHEN CHARINDEX('win11 home', LOWER(product_name)) > 0 THEN 'Windows 11'
-	WHEN CHARINDEX('dos', LOWER(product_name)) > 0 THEN 'DOS'
-	WHEN CHARINDEX('primeos', LOWER(product_name)) > 0 THEN 'Prime OS'
+    WHEN CHARINDEX('win11', LOWER(product_name)) > 0 THEN 'Windows 11'
+    WHEN CHARINDEX('win11 home', LOWER(product_name)) > 0 THEN 'Windows 11'
+    WHEN CHARINDEX('dos', LOWER(product_name)) > 0 THEN 'DOS'
+    WHEN CHARINDEX('primeos', LOWER(product_name)) > 0 THEN 'Prime OS'
     WHEN CHARINDEX('windows 11', LOWER(product_name)) > 0 THEN 'Windows 11'
-	WHEN CHARINDEX('chrome os', LOWER(product_name)) > 0 THEN 'Chrome OS'
+    WHEN CHARINDEX('chrome os', LOWER(product_name)) > 0 THEN 'Chrome OS'
     ELSE 'Windows 11'
 END
+
+# updating the storage column
+Update [Amazon].[dbo].[Laptops]
+set storage = CASE
+        WHEN CHARINDEX('512GB', product_name) > 0 THEN '512GB SSD'
+	WHEN CHARINDEX('512', product_name) > 0 THEN '512GB SSD'
+	WHEN CHARINDEX('256GB', product_name) > 0 THEN '256GB SSD'
+        WHEN CHARINDEX('1TB', product_name) > 0 THEN '1TB SSD'
+	WHEN CHARINDEX('512 GB', product_name) > 0 THEN '512GB SSD'
+        WHEN CHARINDEX('1 TB', product_name) > 0 THEN '1TB SSD'
+	WHEN CHARINDEX('2TB NVMe', product_name) > 0 THEN '2TB NVMe SSD'
+	WHEN CHARINDEX('128GB eMMC', product_name) > 0 THEN '128GB eMMC'
+	WHEN CHARINDEX('64 GB eMMC', product_name) > 0 THEN '64GB eMMC'
+	WHEN CHARINDEX('64GB eMMC', product_name) > 0 THEN '64GB eMMC'
+    END
+FROM 
+    [Amazon].[dbo].[Laptops]
+where storage is null;
