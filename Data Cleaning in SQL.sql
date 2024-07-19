@@ -190,3 +190,17 @@ set color = CASE
 FROM 
     [Amazon].[dbo].[Laptops]
 where color is null;
+
+# update screen resolution column
+UPDATE [Amazon].[dbo].[Laptops]
+SET screen_resolution = CASE WHEN product_name LIKE '%2.8K%' THEN '2.8K'
+	 WHEN product_name LIKE '%FHD OLED%' THEN 'FHD OLED'
+	 WHEN product_name LIKE '%OLED%' THEN 'OLED'
+         WHEN product_name LIKE '%2.5K%' THEN '2.5K'
+	 WHEN product_name LIKE '%2K%' THEN '2K'
+         WHEN product_name LIKE '%FHD%' THEN 'FHD'
+	 WHEN product_name LIKE '%3K%' THEN '3K'
+	 WHEN product_name LIKE '%UHD%' THEN 'UHD'
+     ELSE 'HD'
+    END
+where screen_resolution is null
