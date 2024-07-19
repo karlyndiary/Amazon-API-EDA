@@ -204,3 +204,90 @@ SET screen_resolution = CASE WHEN product_name LIKE '%2.8K%' THEN '2.8K'
      ELSE 'HD'
     END
 where screen_resolution is null
+
+# update processor column
+SELECT
+    product_name,
+    CASE
+        WHEN PATINDEX('%Intel Core i[3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Intel Core i[3579]%', product_name),
+                13 -- Length of "Intel Core i5"
+            )
+			WHEN PATINDEX('%i[3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%i[3579]%', product_name),
+                2 -- Length of "i5"
+            )
+					WHEN PATINDEX('%Intel Pentium%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Intel Pentium%', product_name),
+                13 -- Length of "i5"
+            )
+        WHEN PATINDEX('%Intel [0-9]+th Gen i[3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Intel [0-9]+th Gen i[3579]%', product_name),
+                15 -- Length of "Intel Core i5"
+            )
+	    WHEN PATINDEX('%Intel Core [0-9]%', product_name) > 0 THEN
+           SUBSTRING(
+                product_name,
+                PATINDEX('%Intel Core [0-9]%', product_name),
+                12 -- Length of "Intel Core i5"
+           )
+			    WHEN PATINDEX('%Intel i[0-9]%', product_name) > 0 THEN
+           SUBSTRING(
+                product_name,
+                PATINDEX('%Intel i[0-9]%', product_name),
+                8 -- Length of "Intel Core i5"
+           )
+        WHEN PATINDEX('%Intel® Core™ i[3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Intel® Core™ i[3579]%', product_name),
+                15 -- Length of "Intel®Core™ i5"
+            )
+        WHEN PATINDEX('%AMD Ryzen [3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%AMD Ryzen [3579]%', product_name),
+                10 -- Length of "AMD Ryzen 5"
+            )
+		WHEN PATINDEX('%Ryzen [3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Ryzen [3579]%', product_name),
+                7 -- Length of "Ryzen 5"
+            )
+		WHEN PATINDEX('%Intel Celeron%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Intel Celeron%', product_name),
+                13 -- Length of "Ryzen 5"
+            )
+        WHEN PATINDEX('%MediaTek Kompanio [0-9]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%MediaTek Kompanio [0-9]%', product_name),
+                8 -- Length of "MediaTek Kompanio 520"
+            )
+        WHEN PATINDEX('%MediaTek MT[0-9]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%MediaTek MT[0-9]%', product_name),
+                8 -- Length of "MediaTek MT8788"
+            )
+        WHEN PATINDEX('%Core i[3579]%', product_name) > 0 THEN
+            SUBSTRING(
+                product_name,
+                PATINDEX('%Core i[3579]%', product_name),
+                7 -- Length of "Core i5"
+            )
+        ELSE 'Unknown Processor'
+    END AS processor
+FROM
+    [Amazon].[dbo].[Laptops]
