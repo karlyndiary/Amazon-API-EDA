@@ -161,3 +161,30 @@ set storage = CASE
 FROM 
     [Amazon].[dbo].[Laptops]
 where storage is null;
+
+# updated color column
+Update [Amazon].[dbo].[Laptops]
+set color = CASE
+        WHEN product_name LIKE '%Mica Silver%' THEN 'Mica Silver'
+        WHEN product_name LIKE '%Steel Gray%' THEN 'Steel Gray'
+        WHEN product_name LIKE '%Moon White%' THEN 'Moon White'
+        WHEN product_name LIKE '%Icelight Silver%' THEN 'Icelight Silver'
+	WHEN product_name LIKE '%Graphite Black%' THEN 'Graphite Black'
+	WHEN product_name LIKE '%Midnight Blue%' THEN 'Midnight Blue'
+	WHEN product_name LIKE '%Natural Silver%' THEN 'Natural Silver'
+	WHEN product_name LIKE '%Cloud Gray%' THEN 'Cloud Gray'
+	WHEN product_name LIKE '%Cosmos Gray%' THEN 'Cosmos Gray'
+        WHEN product_name LIKE '%Blue%' THEN 'Blue'
+        WHEN product_name LIKE '%Silver%' THEN 'Silver'
+        WHEN product_name LIKE '%Grey%' THEN 'Grey'
+	WHEN product_name LIKE '%Gray%' THEN 'Gray'
+	WHEN product_name LIKE '%White%' THEN 'White'
+        WHEN product_name LIKE '%Platinum%' THEN 'Platinum'
+	WHEN product_name LIKE '%Black%' THEN 'Black'
+	WHEN product_name LIKE '%Graphite%' THEN 'Graphite'
+        WHEN product_name LIKE '%Green%' THEN 'Green'
+        ELSE 'Unknown'
+    END
+FROM 
+    [Amazon].[dbo].[Laptops]
+where color is null;
