@@ -66,7 +66,9 @@ ram Nvarchar(10),
 storage nvarchar(20),
 os nvarchar(20),
 color nvarchar(20),
-weight nvarchar(10)
+weight nvarchar(10),
+screen_resolution nvarchar(10),
+screen_size nvarchar(20)
 
 # update brand column 
 UPDATE [Amazon].[dbo].[Laptops]
