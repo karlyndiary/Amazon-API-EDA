@@ -72,7 +72,8 @@ os nvarchar(20),
 color nvarchar(20),
 weight nvarchar(10),
 screen_resolution nvarchar(10),
-screen_size nvarchar(20)
+screen_size nvarchar(20),
+condition nvarchar(15)
 
 # update brand column 
 UPDATE [Amazon].[dbo].[Laptops]
@@ -292,3 +293,10 @@ Set processor = CASE
             )
     END
 Where processor is null
+
+# Update condition column
+Update [Amazon].[dbo].[Laptops]
+SET condition = CASE WHEN CHARINDEX('(Refurbished)', product_name) > 0 THEN 'Refurbished'
+	 ELSE 'New'
+ END
+where condition is null
