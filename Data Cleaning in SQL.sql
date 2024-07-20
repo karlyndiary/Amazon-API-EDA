@@ -1,3 +1,7 @@
+# cleaning product_name column
+UPDATE [Amazon].[dbo].[Laptops]
+SET product_name = REPLACE(REPLACE(product_name, '®', ' '),'™','')
+
 # cleaning prices 
 UPDATE [Amazon].[dbo].[Laptops]
 SET prices = REPLACE(prices, ',', '')
