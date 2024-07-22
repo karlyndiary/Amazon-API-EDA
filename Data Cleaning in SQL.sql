@@ -15,12 +15,15 @@ where prices !=  MASTER.dbo.getCharacters(prices,'0-9 /')
 update [Amazon].[dbo].[Laptops]
 set prices =  LEFT(prices, CHARINDEX(' ', prices + ' ') - 1)
 where prices != LEFT(prices, CHARINDEX(' ', prices + ' ') - 1)
-
 	
 # cleaning brackets from discount_percent
 UPDATE [Amazon].[dbo].[Laptops]
 SET discount_percent = REPLACE(REPLACE(discount_percent,'(', ''),')','')
-	
+
+# cleaning % off from discount_percent
+UPDATE [Amazon].[dbo].[Laptops]
+SET discount_percent = REPLACE(discount_percent, '% off', '');
+
 # keep the float value of the star 
 UPDATE [Amazon].[dbo].[Laptops]
 SET stars = REPLACE(stars, RIGHT(stars, 15), '' )
@@ -314,6 +317,10 @@ SET condition = CASE WHEN CHARINDEX('(Refurbished)', product_name) > 0 THEN 'Ref
 	 ELSE 'New'
  END
 where condition is null
+
+# Cleaning Refurbished from product_name column
+UPDATE [Amazon].[dbo].[Laptops]
+SET product_name = REPLACE(product_name, '(Refurbished)', '');
 
 # update model name column
 Update [Amazon].[dbo].[Laptops]
