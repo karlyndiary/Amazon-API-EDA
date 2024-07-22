@@ -294,6 +294,20 @@ Set processor = CASE
     END
 Where processor is null
 
+# Cleaning processor column 
+update Amazon.dbo.Laptops
+set processor = case 
+	when processor like '%i3%' then 'Intel Core i3' 
+	when processor like '%i5%' then 'Intel Core i5' 
+	when processor like '%i7%' then 'Intel Core i7' 
+	when processor like '%i9%' then 'Intel Core i9' 
+	when processor like '%Celeron%' then 'Intel Celeron' 
+	when processor like '%Ryzen 3%' then 'AMD Ryzen 3' 
+	when processor like '%Ryzen 5%' then 'AMD Ryzen 5' 
+	when processor like '%AMD RYZEN AI Powered 7%' then 'AMD Ryzen AI Powered 7' 
+	else processor
+end
+
 # Update condition column
 Update [Amazon].[dbo].[Laptops]
 SET condition = CASE WHEN CHARINDEX('(Refurbished)', product_name) > 0 THEN 'Refurbished'
