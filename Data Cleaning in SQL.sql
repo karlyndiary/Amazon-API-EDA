@@ -594,3 +594,30 @@ SELECT product_name,
         ELSE 'Unknown Graphics Card'
     END AS graphics_card
 FROM [Amazon].[dbo].[Laptops];
+
+# Update screen size column
+SELECT 
+    product_name,
+    CASE 
+        -- Handle cases where size is mentioned with 'CM' and 'FHD'
+        
+        -- Handle cases where size is mentioned with 'Inch' or 'inch'
+        WHEN CHARINDEX('Inch', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('Inch', product_name) - 5, 
+                      5) -- Adjust length if needed
+        WHEN CHARINDEX('"', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('"', product_name) - 3, 
+                      3) -- Adjust length if needed
+        WHEN CHARINDEX('-inch', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('-inch', product_name) - 3, 
+                      3) -- Adjust length if needed
+		WHEN CHARINDEX('CM', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('CM', product_name) - 3, 
+                      3) -- Adjust length if needed
+        ELSE 'Unknown Size'
+    END AS ScreenSize
+FROM [Amazon].[dbo].[Laptops];
