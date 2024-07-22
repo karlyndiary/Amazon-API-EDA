@@ -302,9 +302,8 @@ SET condition = CASE WHEN CHARINDEX('(Refurbished)', product_name) > 0 THEN 'Ref
 where condition is null
 
 # update model name column
-SELECT
-    product_name,
-    CASE
+Update [Amazon].[dbo].[Laptops]
+SET model = CASE
         -- Check if the product_name contains a comma, hyphen, keywords "Intel", "AMD", "Ryzen", "15.6 inch", "15.6"", "Core i" or patterns like "12th Gen"
         WHEN CHARINDEX(',', product_name) > 0
              OR CHARINDEX('-', product_name) > 0
@@ -315,6 +314,7 @@ SELECT
              OR PATINDEX('%15.6 inch%', product_name) > 0
              OR PATINDEX('%15.6"%', product_name) > 0
              OR PATINDEX('%Core i[0-9]%', product_name) > 0
+			 OR PATINDEX('%Full%', product_name) > 0
         THEN
             -- Determine the end position based on the first occurrence of the specified patterns
             SUBSTRING(
@@ -338,6 +338,8 @@ SELECT
                               OR CHARINDEX(',', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR CHARINDEX(',', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+                         AND (PATINDEX('%Full%', product_name) = 0
+                              OR CHARINDEX(',', product_name) < PATINDEX('%Full%', product_name))
                     THEN CHARINDEX(',', product_name) - 1
 
                     WHEN CHARINDEX('-', product_name) > 0
@@ -357,6 +359,8 @@ SELECT
                               OR CHARINDEX('-', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR CHARINDEX('-', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+                         AND (PATINDEX('%Full%', product_name) = 0
+                              OR CHARINDEX('-', product_name) < PATINDEX('%Full%', product_name))
                     THEN CHARINDEX('-', product_name) - 1
 
                     WHEN PATINDEX('%Intel%', product_name) > 0
@@ -376,6 +380,8 @@ SELECT
                               OR PATINDEX('%Intel%', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR PATINDEX('%Intel%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+                         AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%Intel%', product_name) < PATINDEX('%Full%', product_name))
                     THEN PATINDEX('%Intel%', product_name) - 1
 
                     WHEN PATINDEX('%AMD%', product_name) > 0
@@ -395,6 +401,8 @@ SELECT
                               OR PATINDEX('%AMD%', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR PATINDEX('%AMD%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+						 AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%AMD%', product_name) < PATINDEX('%Full%', product_name))
                     THEN PATINDEX('%AMD%', product_name) - 1
 
                     WHEN PATINDEX('%Ryzen%', product_name) > 0
@@ -414,6 +422,8 @@ SELECT
                               OR PATINDEX('%Ryzen%', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR PATINDEX('%Ryzen%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+						 AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%Ryzen%', product_name) < PATINDEX('%Full%', product_name))
                     THEN PATINDEX('%Ryzen%', product_name) - 1
 
                     WHEN PATINDEX('%[0-9]th Gen%', product_name) > 0
@@ -433,6 +443,8 @@ SELECT
                               OR PATINDEX('%[0-9]th Gen%', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR PATINDEX('%[0-9]th Gen%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+                         AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%[0-9]th Gen%', product_name) < PATINDEX('%Full%', product_name))
                     THEN PATINDEX('%[0-9]th Gen%', product_name) - 1
 
                     WHEN PATINDEX('%15.6 inch%', product_name) > 0
@@ -452,6 +464,8 @@ SELECT
                               OR PATINDEX('%15.6 inch%', product_name) < PATINDEX('%15.6"%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR PATINDEX('%15.6 inch%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+                         AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%15.6 inch%', product_name) < PATINDEX('%Full%', product_name))
                     THEN PATINDEX('%15.6 inch%', product_name) - 1
 
                     WHEN PATINDEX('%15.6"%', product_name) > 0
@@ -471,7 +485,9 @@ SELECT
                               OR PATINDEX('%15.6"%', product_name) < PATINDEX('%15.6 inch%', product_name))
                          AND (PATINDEX('%Core i[0-9]%', product_name) = 0
                               OR PATINDEX('%15.6"%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
-                    THEN PATINDEX('%15.6"%', product_name) - 1
+                         AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%15.6"%', product_name) < PATINDEX('%Full%', product_name))
+					THEN PATINDEX('%15.6"%', product_name) - 1
 
                     WHEN PATINDEX('%Core i[0-9]%', product_name) > 0
                          AND (CHARINDEX(',', product_name) = 0
@@ -490,13 +506,34 @@ SELECT
                               OR PATINDEX('%Core i[0-9]%', product_name) < PATINDEX('%15.6 inch%', product_name))
                          AND (PATINDEX('%15.6"%', product_name) = 0
                               OR PATINDEX('%Core i[0-9]%', product_name) < PATINDEX('%15.6"%', product_name))
+					     AND (PATINDEX('%Full%', product_name) = 0
+                              OR PATINDEX('%Core i[0-9]%', product_name) < PATINDEX('%Full%', product_name))
                     THEN PATINDEX('%Core i[0-9]%', product_name) - 1
+
+					WHEN PATINDEX('%Full%', product_name) > 0
+                         AND (CHARINDEX(',', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < CHARINDEX(',', product_name))
+                         AND (CHARINDEX('-', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < CHARINDEX('-', product_name))
+                         AND (PATINDEX('%Intel%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%Intel%', product_name))
+                         AND (PATINDEX('%AMD%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%AMD%', product_name))
+                         AND (PATINDEX('%Ryzen%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%Ryzen%', product_name))
+                         AND (PATINDEX('%[0-9]th Gen%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%[0-9]th Gen%', product_name))
+                         AND (PATINDEX('%15.6 inch%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%15.6 inch%', product_name))
+                         AND (PATINDEX('%15.6"%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%15.6"%', product_name))
+                         AND (PATINDEX('%Core i[0-9]%', product_name) = 0
+                              OR PATINDEX('%Full%', product_name) < PATINDEX('%Core i[0-9]%', product_name))
+                    THEN PATINDEX('%Full%', product_name) - 1
 
                     ELSE LEN(product_name)
                 END
             )
         ELSE product_name
-    END AS Result
-FROM 
-    [Amazon].[dbo].[Laptops]
-
+    END
+WHERE model is null
