@@ -558,3 +558,39 @@ SET model = CASE
         ELSE product_name
     END
 WHERE model is null
+
+# update graphic card column
+SELECT product_name,
+    CASE
+        -- Extract NVIDIA GeForce graphics card
+        WHEN PATINDEX('%NVIDIA GeForce%', product_name) > 0 THEN
+            CASE 
+                WHEN PATINDEX('%RTX 4060%', product_name) > 0 THEN 'NVIDIA GeForce RTX 4060'
+                WHEN PATINDEX('%RTX 4070%', product_name) > 0 THEN 'NVIDIA GeForce RTX 4070'
+                WHEN PATINDEX('%RTX 4080%', product_name) > 0 THEN 'NVIDIA GeForce RTX 4080'
+                -- Add other specific models as needed
+                ELSE 'NVIDIA GeForce Graphics'
+            END
+        
+        -- Extract AMD Radeon graphics card
+        WHEN PATINDEX('%AMD Radeon%', product_name) > 0 THEN
+            CASE 
+                WHEN PATINDEX('%RX 6600%', product_name) > 0 THEN 'AMD Radeon RX 6600'
+                WHEN PATINDEX('%RX 6700%', product_name) > 0 THEN 'AMD Radeon RX 6700'
+                WHEN PATINDEX('%RX 6800%', product_name) > 0 THEN 'AMD Radeon RX 6800'
+                -- Add other specific models as needed
+                ELSE 'AMD Radeon Graphics'
+            END
+
+        -- Extract Intel graphics card
+        WHEN PATINDEX('%Intel Iris Xe Graphics%', product_name) > 0 THEN
+            'Intel Iris Xe Graphics'
+        WHEN PATINDEX('%Iris Xe%', product_name) > 0 THEN
+            'Intel Iris Xe Graphics'
+		WHEN PATINDEX('%Intel Graphics%', product_name) > 0 THEN
+            'Intel Graphics'
+        
+        -- Handle other graphics cards or generic cases
+        ELSE 'Unknown Graphics Card'
+    END AS graphics_card
+FROM [Amazon].[dbo].[Laptops];
