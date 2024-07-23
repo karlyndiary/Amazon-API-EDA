@@ -655,3 +655,27 @@ SET screen_size = CASE
 
         ELSE 'Unknown Size'
     END
+Where screen_size is null;
+
+# cleaning screen size column
+WITH a AS (
+    SELECT 
+        screen_size,
+        LTRIM(RTRIM(
+            REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(screen_size, '(', ''), '/', ''), ',', ''), '"', ''), ':', ''), '0H', ''), 's ', ''), 'D ', ''), 'H ', ''), 'I ', ''), 'U ', ''), 'n ', '')
+        )) AS CleanedProductName,
+        ROUND(
+            CASE 
+                WHEN screen_size LIKE '%cm%' OR screen_size LIKE '%Cms%' THEN
+                    CAST(SUBSTRING(screen_size, 1, PATINDEX('%[^0-9.]%', screen_size) - 1) AS FLOAT) * 0.393701
+                WHEN screen_size LIKE '%Inch%' THEN
+                    CAST(SUBSTRING(screen_size, 1, PATINDEX('%[^0-9.]%', screen_size) - 1) AS FLOAT)
+                ELSE 
+                    NULL
+            END, 1) AS ConvertedSize
+    FROM [Amazon].[dbo].[Laptops]
+)
+UPDATE l
+SET screen_size = CAST(a.ConvertedSize AS NVARCHAR) + ' Inch'
+FROM [Amazon].[dbo].[Laptops] l
+JOIN a ON l.screen_size = a.screen_size;
