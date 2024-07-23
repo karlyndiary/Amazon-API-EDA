@@ -596,28 +596,48 @@ SELECT product_name,
 FROM [Amazon].[dbo].[Laptops];
 
 # Update screen size column
-SELECT 
-    product_name,
-    CASE 
-        -- Handle cases where size is mentioned with 'CM' and 'FHD'
-        
-        -- Handle cases where size is mentioned with 'Inch' or 'inch'
-        WHEN CHARINDEX('Inch', product_name) > 0 THEN 
+Update [Amazon].[dbo].[Laptops]
+Set screen_size =     CASE 
+        WHEN CHARINDEX('Cms', product_name) > 0 THEN 
             SUBSTRING(product_name, 
-                      CHARINDEX('Inch', product_name) - 5, 
-                      5) -- Adjust length if needed
+                      CHARINDEX('Cms', product_name) - 6, 
+                      6) + ' Cms'
+
         WHEN CHARINDEX('"', product_name) > 0 THEN 
             SUBSTRING(product_name, 
-                      CHARINDEX('"', product_name) - 3, 
-                      3) -- Adjust length if needed
+                      CHARINDEX('"', product_name) - 5, 
+                      5) + ' Inch'
+
         WHEN CHARINDEX('-inch', product_name) > 0 THEN 
             SUBSTRING(product_name, 
-                      CHARINDEX('-inch', product_name) - 3, 
-                      3) -- Adjust length if needed
-		WHEN CHARINDEX('CM', product_name) > 0 THEN 
+                      CHARINDEX('-inch', product_name) - 5, 
+                      5) + ' Inch'
+
+		WHEN CHARINDEX(' cm', product_name) > 0 THEN 
             SUBSTRING(product_name, 
-                      CHARINDEX('CM', product_name) - 3, 
-                      3) -- Adjust length if needed
+                      CHARINDEX(' cm', product_name) - 5, 
+                      5) + ' cm'
+
+        WHEN CHARINDEX(' Inch', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX(' Inch', product_name) - 4, 
+                      4) + ' Inch'
+
+	WHEN CHARINDEX('CM', product_name) > 0 THEN 
+		SUBSTRING(product_name, 
+			CHARINDEX('CM', product_name) - 6, 
+		     6) + ' CM'
+
+        WHEN CHARINDEX(' FHD', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                     CHARINDEX(' FHD', product_name) - 5, 
+                      5) + ' Inch'
+
+      WHEN CHARINDEX(' IPS', product_name) > 0 THEN 
+	    SUBSTRING(product_name, 
+		   CHARINDEX(' IPS', product_name) - 5, 
+		     5) + ' Inch'
+
         ELSE 'Unknown Size'
-    END AS ScreenSize
-FROM [Amazon].[dbo].[Laptops];
+    END
+where screen_size is null;
