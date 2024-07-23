@@ -596,37 +596,52 @@ SELECT product_name,
 FROM [Amazon].[dbo].[Laptops];
 
 # Update screen size column
-Update [Amazon].[dbo].[Laptops]
-Set screen_size =     CASE 
+UPDATE [Amazon].[dbo].[Laptops]
+SET screen_size = CASE 
+        WHEN CHARINDEX(' Inch', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX(' Inch', product_name) - 4, 
+                      4) + ' Inch'
+
+        WHEN CHARINDEX(' inch', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX(' inch', product_name) - 3, 
+                      3) + ' Inch'
+
         WHEN CHARINDEX('Cms', product_name) > 0 THEN 
             SUBSTRING(product_name, 
                       CHARINDEX('Cms', product_name) - 6, 
                       6) + ' Cms'
-
-        WHEN CHARINDEX('"', product_name) > 0 THEN 
-            SUBSTRING(product_name, 
-                      CHARINDEX('"', product_name) - 5, 
-                      5) + ' Inch'
-
-        WHEN CHARINDEX('-inch', product_name) > 0 THEN 
-            SUBSTRING(product_name, 
-                      CHARINDEX('-inch', product_name) - 5, 
-                      5) + ' Inch'
 
 		WHEN CHARINDEX(' cm', product_name) > 0 THEN 
             SUBSTRING(product_name, 
                       CHARINDEX(' cm', product_name) - 5, 
                       5) + ' cm'
 
-        WHEN CHARINDEX(' Inch', product_name) > 0 THEN 
+		WHEN CHARINDEX('cm', product_name) > 0 THEN 
             SUBSTRING(product_name, 
-                      CHARINDEX(' Inch', product_name) - 4, 
+                      CHARINDEX('cm', product_name) - 5, 
+                      5) + ' cm'
+
+        WHEN CHARINDEX('Cm', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('Cm', product_name) - 2, 
+                      2) + ' Cm'
+
+        WHEN CHARINDEX('"', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('"', product_name) - 4, 
                       4) + ' Inch'
 
-	WHEN CHARINDEX('CM', product_name) > 0 THEN 
-		SUBSTRING(product_name, 
-			CHARINDEX('CM', product_name) - 6, 
-		     6) + ' CM'
+        WHEN CHARINDEX('-inch', product_name) > 0 THEN 
+            SUBSTRING(product_name, 
+                      CHARINDEX('-inch', product_name) - 2, 
+                      2) + ' Inch'
+
+	   WHEN CHARINDEX('CM', product_name) > 0 THEN 
+		    SUBSTRING(product_name, 
+			       CHARINDEX('CM', product_name) - 3, 
+		            3) + ' CM'
 
         WHEN CHARINDEX(' FHD', product_name) > 0 THEN 
             SUBSTRING(product_name, 
@@ -640,4 +655,3 @@ Set screen_size =     CASE
 
         ELSE 'Unknown Size'
     END
-where screen_size is null;
