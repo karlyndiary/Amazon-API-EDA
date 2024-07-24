@@ -22,3 +22,7 @@
 ```
 =AVERAGE(Data!E:E)
 ```
+- Top 5 Most Reviewed Products
+```
+=query(Data!A1:97, "Select B,F Order by F Desc Limit 5")
+```
