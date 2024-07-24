@@ -4,7 +4,6 @@
 * [Business Problem](#business-problem)
 * [Tools Used](#tools-used)
 * [Data Description](#data-description)
-* [Data Cleaning in MS SQL Server](#data-cleaning-in-ms-sql-server)
 * [Dashboard](#dashboard)
 
 ## Business Problem: 
