@@ -32,7 +32,7 @@ Developing a laptop price analysis and recommendation system to optimize sales a
 - processor: Brand of the processor
 - ram: Amount of RAM in the laptop
 - storage: Size of storage
-- operating_system: Operating system of the laptop
+- os: Operating system of the laptop
 - color: Color of the laptop
 - weight: Weight of the laptop
 - screen_resolution: Screen resolution of the laptop
