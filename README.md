@@ -1,4 +1,4 @@
-# Amazon Web Scraping Analysis
+# Amazon API Analysis
 
 ## Table of Contents
 * [Business Problem](#business-problem)
@@ -12,10 +12,10 @@
 Developing a laptop price analysis and recommendation system to optimize sales and customer satisfaction through informed pricing strategies.
 
 ## Tools Used
-- Python: For Web Scraping and ETL.
-  - Laptops 
-- SQL: For data cleaning and querying the required data.
-- Google Sheets: Dashboard Data Visualizations.
+- Python: For Data Extraction, Data Cleaning and ETL.
+  - Real-Time Amazon API https://rapidapi.com/letscrape-6bRBa3QguO5/api/real-time-amazon-data 
+- SQL: Querying the required data.
+- Tableau: Dashboard Data Visualizations.
 
 ## Data Description
 - id : Primary Key of the laptop
