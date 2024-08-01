@@ -13,7 +13,7 @@ Developing a laptop price analysis and recommendation system to optimize sales a
 
 ## Tools Used
 - Python: For Data Extraction, Data Cleaning and ETL.
-  - Real-Time Amazon API https://rapidapi.com/letscrape-6bRBa3QguO5/api/real-time-amazon-data 
+  - Real-Time Amazon API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/real-time-amazon-data 
 - SQL: Querying the required data.
 - Tableau: Dashboard Data Visualizations.
 
