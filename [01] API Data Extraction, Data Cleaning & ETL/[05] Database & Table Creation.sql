@@ -3,7 +3,8 @@ CREATE DATABASE Amazon;
 USE Amazon;
 
 CREATE TABLE Products (
-    asin VARCHAR(255) PRIMARY KEY,
+    id INT PRIMARY KEY,
+    asin VARCHAR(255),
     title TEXT,
     price FLOAT,
     original_price FLOAT,
