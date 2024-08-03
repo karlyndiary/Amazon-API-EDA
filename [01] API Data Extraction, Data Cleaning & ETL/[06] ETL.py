@@ -25,7 +25,7 @@ except Exception as e:
 
 table_name = 'Products'
 try:
-    df.to_sql(table_name, engine, if_exists='append', index=False)
+    pbc.to_sql(table_name, engine, if_exists='append', index=False)
     print("Data loaded successfully!")
 except Exception as e:
     print(f"Data load failed: {e}")
@@ -52,7 +52,7 @@ except Exception as e:
 
 table_name = 'Reviews'
 try:
-    df.to_sql(table_name, engine, if_exists='append', index=False)
+    reviews.to_sql(table_name, engine, if_exists='append', index=False)
     print("Data loaded successfully!")
 except Exception as e:
     print(f"Data load failed: {e}")
