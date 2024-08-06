@@ -33,7 +33,7 @@ USE Amazon;
 CREATE TABLE Reviews (
     id INT PRIMARY KEY,
     review_id VARCHAR(255),
-    title TEXT,
+    title NVARCHAR(MAX),
     comment TEXT,
     star_rating INT,
     link TEXT,
