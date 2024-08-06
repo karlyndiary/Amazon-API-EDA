@@ -1,0 +1,1 @@
+-- Retrieve products with an average sentiment score higher than the overall average sentiment.
