@@ -4,12 +4,13 @@
 * [Business Problem](#business-problem)
 * [Tools Used](#tools-used)
 * [Data Description](#data-description)
+* [Data Modeling](#data-modeling)
 * [Dashboard](#dashboard)
 
 ## Business Problem: 
-### Laptop Price Optimization Analysis
+### Sentiment Analysis of Customer Reviews for Product Improvement
 
-Developing a laptop price analysis and recommendation system to optimize sales and customer satisfaction through informed pricing strategies.
+This project aims to analyze customer reviews to extract meaningful insights into product performance and customer satisfaction. By leveraging sentiment analysis techniques, the project will classify reviews into positive, neutral, and negative sentiments. This analysis will help identify trends and patterns in customer opinions, enabling data-driven decisions for product development and marketing strategies. The insights gained from this project will be crucial in enhancing product quality, customer experience, and overall brand perception.
 
 ## Tools Used
 - Python: For Data Extraction, Data Cleaning and ETL.
@@ -18,25 +19,10 @@ Developing a laptop price analysis and recommendation system to optimize sales a
 - Tableau: Dashboard Data Visualizations.
 
 ## Data Description
-- id : Primary Key of the laptop
-- product_name: Name of the laptop listing
-- price: Current price of the laptop
-- discount_percent: Discount percentage
-- stars: Number of stars the product has received
-- rating: Customer rating of the product
-- total_purchased: Total number of units purchased
-- deal: Indicates if the product is part of a special deal
-- device_setup: Whether the product has device setup or not
-- brand: Brand name
-- model: Model name of the laptop
-- processor: Brand of the processor
-- ram: Amount of RAM in the laptop
-- storage: Size of storage
-- os: Operating system of the laptop
-- color: Color of the laptop
-- weight: Weight of the laptop
-- screen_resolution: Screen resolution of the laptop
-- screen_size: Size of the laptop screen
-- condition: State of the laptop (New or Refurbished)
-  
+### Products 
+
+### Reviews
+
+## Data Modeling
+
 ## Dashboard
