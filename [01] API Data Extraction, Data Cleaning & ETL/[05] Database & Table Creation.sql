@@ -5,7 +5,7 @@ USE Amazon;
 CREATE TABLE Products (
     id INT PRIMARY KEY,
     asin VARCHAR(255),
-    title TEXT,
+    title NVARCHAR(MAX),
     price FLOAT,
     original_price FLOAT,
     currency VARCHAR(10),
