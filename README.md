@@ -24,6 +24,6 @@ This project aims to analyze customer reviews to extract meaningful insights int
 ### Reviews
 
 ## Data Modeling
-![Amazon API drawio](https://github.com/user-attachments/assets/82858a1d-fa57-48d9-91e4-7061b877ddb4)
+![Amazon API drawio](https://github.com/user-attachments/assets/8818cad8-9f11-4bb1-8283-9f521b1cbc43)
 
 ## Dashboard
