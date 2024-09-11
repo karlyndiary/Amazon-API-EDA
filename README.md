@@ -1,4 +1,4 @@
-# Amazon API Analysis
+# Amazon Sentiment Analysis
 
 ## Table of Contents
 * [Business Problem](#business-problem)
