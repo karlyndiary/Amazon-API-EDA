@@ -7,14 +7,9 @@
 * [Recommendations](#recommendations)
 
 # Project Background 
-### Sentiment Analysis of Customer Reviews for Product Improvement
+Amazon, founded in 1994, is a global e-commerce giant offering a vast range of products, including popular electronic items, through its website and mobile app. 
 
-This project aims to analyze customer reviews to extract meaningful insights into product performance and customer satisfaction. By leveraging sentiment analysis techniques, the project will classify reviews into positive, neutral, and negative sentiments. This analysis will help identify trends and patterns in customer opinions, enabling data-driven decisions for product development and marketing strategies. The insights gained from this project will be crucial in enhancing product quality, customer experience, and overall brand perception.
-
-# Project Background 
-Elist Electronics, established in 2018, is a global e-commerce company that sells popular electronic products worldwide via its website and mobile app. 
-
-The company has significant amounts of data on its sales, marketing efforts, operational efficiency, product offerings, and loyalty program that has been previously underutilized. This project thoroughly analyzes and synthesizes this data in order to uncover critical insights that will improve Elist's commercial success. 
+With millions of customer reviews and feedback across its electronics category, Amazon possesses a wealth of data that has the potential to provide valuable insights for product improvement and customer satisfaction. This project focuses on conducting a comprehensive sentiment analysis of electronic product reviews, aiming to uncover key insights that can guide product enhancements, improve customer experience, and drive better business outcomes for Amazon.
 
 Insights and recommendations are provided on the following key areas : 
 
@@ -23,11 +18,12 @@ Insights and recommendations are provided on the following key areas :
 - Loyalty Program Success : An assessment of the loyalty program on customer retention and sales. 
 - Regional Comparisons : An evaluation of sales and orders by region.
 
+Detailed Resources: 
 
-- An interactive PowerBI dashboard can be downloaded here.
 - the SQL queries utilized to inspect and perform quality checks can be found here. 
 - the SQL queries utilized to clean, organize, and prepare data for the dashboard can be found here. 
 - targeted SQL queries regarding various business questions can be found here.
+- An interactive Tableau dashboard can be downloaded ![here](https://public.tableau.com/app/profile/karen.judelyn.fernandes/viz/AmazonElectronicsReviewsDashboard/Dashboard-Overview?publish=yes).
 
 # Data Structure & Initial Checks 
 
