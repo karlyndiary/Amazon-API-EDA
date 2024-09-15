@@ -23,6 +23,7 @@ Insights and recommendations are provided on the following key areas :
 - Loyalty Program Success : An assessment of the loyalty program on customer retention and sales. 
 - Regional Comparisons : An evaluation of sales and orders by region.
 
+
 - An interactive PowerBI dashboard can be downloaded here.
 - the SQL queries utilized to inspect and perform quality checks can be found here. 
 - the SQL queries utilized to clean, organize, and prepare data for the dashboard can be found here. 
