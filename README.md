@@ -28,7 +28,7 @@ Detailed Resources:
 
 Elist's database structure as seen below consists of four tables : orders, customers, geo_lookup, and order_status, with a total row count of 108,127 records.
 
-[ER Diagram here]
+![Amazon API drawio](https://github.com/user-attachments/assets/44120410-19b8-4834-b36b-23fc109ae3e1)
 
 Prior to beginning the analysis, a variety of checks were conducted for quality control and familiarization with the datasets. The SQL queries utilized to inspect and perform quality checks can be found here.
 
