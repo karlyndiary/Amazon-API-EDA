@@ -20,9 +20,8 @@ Insights and recommendations are provided on the following key areas :
 
 Detailed Resources: 
 
-- the SQL queries utilized to inspect and perform quality checks can be found here. 
-- the SQL queries utilized to clean, organize, and prepare data for the dashboard can be found here. 
-- targeted SQL queries regarding various business questions can be found here.
+- The API Extraction and Data Cleaning process utilized can be found [here]. 
+- Sentiment Analysis can be found [here]().
 - An interactive Tableau dashboard can be downloaded [here](https://public.tableau.com/app/profile/karen.judelyn.fernandes/viz/AmazonElectronicsReviewsDashboard/Dashboard-Overview?publish=yes).
 
 # Data Structure & Initial Checks 
