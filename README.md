@@ -26,7 +26,7 @@ Detailed Resources:
 
 # Data Structure & Initial Checks 
 
-Elist's database structure as seen below consists of four tables : orders, customers, geo_lookup, and order_status, with a total row count of 108,127 records.
+Amazon's database structure as seen below consists of two tables: products and reviews, with a total row count of 606 records.
 
 ![Amazon API drawio](https://github.com/user-attachments/assets/44120410-19b8-4834-b36b-23fc109ae3e1)
 
