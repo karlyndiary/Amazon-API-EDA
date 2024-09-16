@@ -2,7 +2,7 @@
 
 # Table of Contents
 * [Project Background](#project-background)
-* [Data Structure and Initial Checks](#data-structure-and-initial-checks)
+* [Data Structure](#data-structure)
 * [Executive Summary](#executive-summary)
 * [Recommendations](#recommendations)
 
@@ -13,10 +13,10 @@ With millions of customer reviews and feedback across its electronics category, 
 
 Insights and recommendations are provided on the following key areas : 
 
-- **Sentiment Distribution**: 88% of reviews are positive, with an average product rating of 4.5 and a sentiment score of 0.84.
-- **Sentiment Trends**: Positive reviews dominate, but negative sentiment increased in 2024.
-- **Product Performance**: Products with positive sentiment have higher ratings (4.866), while negative ones average 3.154.
-- **Best Sellers & Prime**: Best sellers and Prime products predominantly show positive sentiment.
+- **Sentiment Distribution**: Analysis of overall customer feedback, highlighting the proportion of positive, neutral, and negative reviews.
+- **Sentiment Trends**: Evaluation of sentiment changes over time, focusing on the increase in negative sentiment in 2024.
+- **Product Performance**: Assessment of product ratings in relation to customer sentiment, showing the correlation between high ratings and positive feedback.
+- **Best Sellers & Prime Products**: Review of best-selling and Prime products, focusing on their association with positive sentiment and customer satisfaction.
 
 Detailed Resources: 
 
@@ -24,13 +24,11 @@ Detailed Resources:
 - Sentiment Analysis can be found [here](https://github.com/karlyndiary/Amazon-Sentiment-Analysis-EDA/tree/main/%5B02%5D%20Sentiment%20Analysis).
 - An interactive Tableau dashboard can be downloaded [here](https://public.tableau.com/app/profile/karen.judelyn.fernandes/viz/AmazonElectronicsReviewsDashboard/Dashboard-Overview?publish=yes).
 
-# Data Structure & Initial Checks 
+# Data Structure
 
 Amazon's database structure as seen below consists of two tables: products and reviews, with a total row count of 606 records.
 
 ![Amazon API drawio](https://github.com/user-attachments/assets/44120410-19b8-4834-b36b-23fc109ae3e1)
-
-Prior to beginning the analysis, a variety of checks were conducted for quality control and familiarization with the datasets. The SQL queries utilized to inspect and perform quality checks can be found here.
 
 # Executive Summary 
 
@@ -38,9 +36,9 @@ Prior to beginning the analysis, a variety of checks were conducted for quality 
 
 After peaking in late 2020, the company's sales have continued to decline, with significant drops in 2022. Key rformance indicators have all shown year-over-year decreases : order volume by 40%, revenue by 46%, and average der value (AOV) by 10%. While this decline can be broadly attributed to a return to pre-pandemic normalcy, the lowing sections will explore additional contributing factors and highlight key opportunity areas for improvement. 
 
-below is the overview page from the PowerBI dashboard and more examples are included throughout the report. The tire interactive dashboard can be downloaded here.
+below is the overview page from the PowerBI dashboard and more examples are included throughout the report. The interactive dashboard can be downloaded [here](https://public.tableau.com/app/profile/karen.judelyn.fernandes/viz/AmazonElectronicsReviewsDashboard/Dashboard-Overview?publish=yes).
 
-![Dashboard - Overview](https://github.com/user-attachments/assets/7d8295c6-65bf-4c15-af6a-0656eec1f459)
+![Dashboard - Overview](https://github.com/user-attachments/assets/ec5e4d06-2865-4382-9f42-a171b128cf16)
 
 ### Sales Trends : 
 • The company's sales peaked in December 2020 with 4,019 orders totaling $1,251,721 monthly revenue. This corresponds with the boom in economy-wide spending due to pandemic-induced changing consumer behavior. 
