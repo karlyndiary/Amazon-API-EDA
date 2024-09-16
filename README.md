@@ -13,10 +13,10 @@ With millions of customer reviews and feedback across its electronics category, 
 
 Insights and recommendations are provided on the following key areas : 
 
-- Sales Trends Analysis : Evaluation of historical sales patterns, both globally and by region, focusing on Revenue, Order Volume, and Average Order Value (AOV). 
-- Product Level Performance : An analysis of Elist's various product lines, understanding their impact on sales and returns. 
-- Loyalty Program Success : An assessment of the loyalty program on customer retention and sales. 
-- Regional Comparisons : An evaluation of sales and orders by region.
+- **Sentiment Distribution**: 88% of reviews are positive, with an average product rating of 4.5 and a sentiment score of 0.84.
+- **Sentiment Trends**: Positive reviews dominate, but negative sentiment increased in 2024.
+- **Product Performance**: Products with positive sentiment have higher ratings (4.866), while negative ones average 3.154.
+- **Best Sellers & Prime**: Best sellers and Prime products predominantly show positive sentiment.
 
 Detailed Resources: 
 
