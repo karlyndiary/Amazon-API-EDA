@@ -40,7 +40,7 @@ After peaking in late 2020, the company's sales have continued to decline, with 
 
 below is the overview page from the PowerBI dashboard and more examples are included throughout the report. The tire interactive dashboard can be downloaded here.
 
-![Dashboard - Overview](https://github.com/user-attachments/assets/2b20b79a-d420-4147-b17f-e0682aa779fb)
+![Dashboard - Overview](https://github.com/user-attachments/assets/7d8295c6-65bf-4c15-af6a-0656eec1f459)
 
 ### Sales Trends : 
 • The company's sales peaked in December 2020 with 4,019 orders totaling $1,251,721 monthly revenue. This corresponds with the boom in economy-wide spending due to pandemic-induced changing consumer behavior. 
