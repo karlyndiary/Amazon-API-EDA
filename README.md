@@ -40,7 +40,7 @@ After peaking in late 2020, the company's sales have continued to decline, with 
 
 below is the overview page from the PowerBI dashboard and more examples are included throughout the report. The tire interactive dashboard can be downloaded here.
 
-[dashboard image here]
+![Dashboard - Overview](https://github.com/user-attachments/assets/632f1bf1-e57c-40c2-b6b7-2fc61f3bc686)
 
 ### Sales Trends : 
 • The company's sales peaked in December 2020 with 4,019 orders totaling $1,251,721 monthly revenue. This corresponds with the boom in economy-wide spending due to pandemic-induced changing consumer behavior. 
@@ -48,7 +48,7 @@ below is the overview page from the PowerBI dashboard and more examples are incl
 • Despite the downward trend, full-year 2022 remained above the pre-COVID 2019 baseline in all three key performance indicators. This is primarily due to the stronger 1Q22, which recorded revenue and order count well above the same period in 2020, up 37% and 23% respectively. 
 • Average order value saw a one-month year-over-year increase in September 2022, this can be attributed to an increased share of high-cost laptop orders.
 
-[sales trends chart]
+![Dashboard - Detail](https://github.com/user-attachments/assets/14114012-76d2-4be1-a97a-31b71e3148df)
 
 # Recommendations : 
 
