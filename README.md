@@ -34,19 +34,23 @@ Amazon's database structure as seen below consists of two tables: products and r
 
 ### Overview of Findings 
 
-After peaking in late 2020, the company's sales have continued to decline, with significant drops in 2022. Key rformance indicators have all shown year-over-year decreases : order volume by 40%, revenue by 46%, and average der value (AOV) by 10%. While this decline can be broadly attributed to a return to pre-pandemic normalcy, the lowing sections will explore additional contributing factors and highlight key opportunity areas for improvement. 
+After a period of strong positive sentiment, there has been a noticeable shift in 2024, with negative sentiment increasing significantly. Key performance indicators reflect this change: negative sentiment rose, and the average rating for negative reviews remains low at 3.154. Despite this, positive sentiment still dominates at 88%, driving higher average ratings of 4.866. The following sections will explore potential reasons for the rise in negative sentiment and identify areas to improve customer satisfaction, particularly in relation to best sellers and Prime products.
 
-below is the overview page from the PowerBI dashboard and more examples are included throughout the report. The interactive dashboard can be downloaded [here](https://public.tableau.com/app/profile/karen.judelyn.fernandes/viz/AmazonElectronicsReviewsDashboard/Dashboard-Overview?publish=yes).
+Below is the overview page from the Tableau dashboard and more examples are included throughout the report. The interactive dashboard can be downloaded [here](https://public.tableau.com/app/profile/karen.judelyn.fernandes/viz/AmazonElectronicsReviewsDashboard/Dashboard-Overview?publish=yes).
 
-![Dashboard - Overview](https://github.com/user-attachments/assets/ec5e4d06-2865-4382-9f42-a171b128cf16)
+![Overview](https://github.com/user-attachments/assets/41b8d8a7-f411-431e-bade-048a12eac3cc)
 
-### Sales Trends : 
-• The company's sales peaked in December 2020 with 4,019 orders totaling $1,251,721 monthly revenue. This corresponds with the boom in economy-wide spending due to pandemic-induced changing consumer behavior. 
-• Beginning in April 2021, revenue declined on a year-over-year basis for 21 consecutive months. Revenue hit a company lifetime low in October 2022, with the company earning just over $178K. In the following months, revenue recovered slightly, following normal holiday seasonality patterns. 
-• Despite the downward trend, full-year 2022 remained above the pre-COVID 2019 baseline in all three key performance indicators. This is primarily due to the stronger 1Q22, which recorded revenue and order count well above the same period in 2020, up 37% and 23% respectively. 
-• Average order value saw a one-month year-over-year increase in September 2022, this can be attributed to an increased share of high-cost laptop orders.
+### Sentiment Analysis and Correlation Insights : 
+- 88% of the products received positive reviews, 7% neutral, and 4% negative, highlighting a strong customer satisfaction trend. This aligns with growing consumer preference for electronic products, driving positive feedback in the review space.
+- The average rating for products with positive sentiment is 4.8, followed by 4.5 for neutral, and 3.1 for negative reviews. This trend reflects the strong correlation between higher ratings and positive customer experiences, emphasizing the impact of satisfaction on product evaluations.
+- Out of the total products, 504 received 5-star ratings, followed by 83 products with 4 stars. A smaller number, 8 products, received 3 stars, while 4 products were rated 2 stars, and 7 products received 1 star. This distribution highlights a clear dominance of top-rated products, indicating strong consumer approval.
+- Most products received ratings above 3.9, indicating a positive sentiment, while ratings between 4.2 and 4.5 showed a neutral sentiment. Products with a 3.9 rating had a predominantly negative sentiment. Interestingly, a product with a 4.5 rating, which would usually signal positive feedback, was tied to negative sentiment. This exception to the typical trend will be examined further in the next analysis.
+- The relationship between price and sentiment reveals notable patterns: a sharp decrease in negative sentiment is observed for a product priced at $19.99 with a rating of 2.7. In contrast, the highest positive sentiment aligns with a product priced at $9.99 and rated 4.8. For neutral sentiment, ratings span from 3.9 at $69.99 to 4.8 at $29.99. This variation highlights the intricate interplay between product pricing, sentiment, and ratings.
+- Sales volume data demonstrates a strong correlation with sentiment: products with positive sentiment achieved a sales volume of 14,007, indicating high customer satisfaction across delivery, product performance, and overall experience. Meanwhile, neutral sentiment reflects moderate satisfaction with 8,977 in sales volume, and negative sentiment still shows a significant 8,500 sales, highlighting areas for potential product improvement despite continued customer interest.
 
-![Dashboard - Detail](https://github.com/user-attachments/assets/14114012-76d2-4be1-a97a-31b71e3148df)
+### Product Trends
+
+![Details](https://github.com/user-attachments/assets/4f5e1577-e61a-4bda-9cc9-609fb8b9593d)
 
 # Recommendations : 
 
