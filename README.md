@@ -64,8 +64,13 @@ Below is the overview page from the Tableau dashboard and more examples are incl
 
 Based on the uncovered insights, the following recommendations have been provided : 
 
-- Enhance Product Quality: Maintain and improve product quality to sustain the high customer satisfaction reflected in the 88% positive reviews.
-- Investigate Negative Feedback: Focus on understanding and addressing the issues behind negative reviews, especially for prime products, to mitigate dissatisfaction.
-- Leverage High-Rated Products: Promote products with a high number of 5-star ratings in marketing campaigns, using positive reviews to attract more customers.
-- Monitor Seasonal Trends: Capitalize on sales peaks during the summer by ramping up marketing efforts and creating promotions ahead of the season.
-- Adjust Pricing Strategies: Explore competitive pricing for products with neutral or negative sentiment to enhance their appeal and improve customer perceptions.
+- Enhance Product Quality: With 88% positive reviews, focus on maintaining and improving product quality to sustain high customer satisfaction. Regularly review customer feedback to identify areas for enhancement.
+- Target Prime Status Effectively: Since prime status alone does not guarantee positive reviews, ensure that products labeled as prime also meet high-quality standards. Consider enhancing product descriptions and images to better inform customers.
+- Address Negative Feedback: Investigate the products receiving negative reviews, especially those with prime status, to understand specific customer grievances. Implement targeted improvements based on this feedback to mitigate dissatisfaction.
+- Monitor Seasonal Trends: With sales peaking in August, consider ramping up marketing efforts before the summer season to maximize sales potential. Create promotions or bundles that resonate with seasonal consumer behavior.
+- Focus on High-Rated Products: Given the significant number of 5-star ratings, consider leveraging these products in marketing campaigns to attract more customers. Highlight positive reviews and testimonials prominently on product pages.
+- Investigate Anomalies: The product with a 4.5 rating tied to negative sentiment warrants further investigation. Understanding the reasons behind this disconnect can help refine marketing strategies and improve customer education.
+- Adjust Pricing Strategies: Given the correlation between price and sentiment, explore competitive pricing strategies. Consider promotional pricing for products that are receiving neutral or negative sentiments to boost their appeal.
+- Leverage Sales Volume Insights: The strong sales volume among positively rated products indicates a solid customer base. Use this information to identify best-performing categories and allocate resources for similar products.
+- Encourage Customer Engagement: Foster a community around your products, encouraging customers to leave detailed reviews. This can help in gathering insights for improvement and in creating a more robust product development cycle.
+- Continuous Sentiment Monitoring: Establish a system for ongoing sentiment analysis to track changes in customer perceptions and quickly address emerging issues. Regularly update stakeholders with insights from this data to inform decision-making.
