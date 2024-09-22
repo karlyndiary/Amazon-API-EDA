@@ -58,7 +58,7 @@ Below is the overview page from the Tableau dashboard and more examples are incl
 
 ![Details](https://github.com/user-attachments/assets/4f5e1577-e61a-4bda-9cc9-609fb8b9593d)
 
-# Recommendations : 
+# Recommendations
 
 Based on the uncovered insights, the following recommendations have been provided : 
 
